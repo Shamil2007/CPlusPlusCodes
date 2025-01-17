@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int GCDResult(int x, int y){
+    while (y != 0) {
+        int n = y;
+        y = x % y;
+        x = n;
+    }
+    return x;
+}
+
+int main(){
+    int x, y;
+    cout<<"Input x and y: ";
+    cin>>x>>y;
+    int GCD = GCDResult(x, y); //GCD (Greatest Common Divisor)
+    int LCM = (x * y) / GCD; //LCM (Least Common Multiple)
+    cout<<"GCD is "<<GCD<<" LCM is "<<LCM;
+}
