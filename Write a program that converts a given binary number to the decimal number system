@@ -1,0 +1,33 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int findLen(int n){
+    int len = 0;
+    while (n > 0){
+        len++;
+        n /= 10;
+    }
+    return len;
+}
+
+int binaryToDec(int binary, int len){
+    int dec = 0;
+    for (int i = 0; i < len; i++) {
+        int x = binary % 10;
+        dec += x * pow(2, i);
+        binary /= 10;
+    }
+    return dec;
+}
+
+int main(){
+    int binary;
+    cout<<"Input binary: ";
+    cin>>binary;
+    int len = findLen(binary);
+    int dec = binaryToDec(binary, len);
+    cout<<"Decimal: "<<dec;
+}
+
+
