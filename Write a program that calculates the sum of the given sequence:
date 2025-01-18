@@ -1,0 +1,29 @@
+# 1/2 + 4/5 + 7/8 + ⋯ + n
+
+#include <iostream>
+using namespace std;
+
+double calculateSum(int terms) {
+    double sum = 0.0;
+    int numerator = 1;
+    int denominator = 2;
+
+    for (int i = 0; i < terms; i++) {
+        sum += (double)numerator / denominator;
+        numerator += 3;  
+        denominator += 3;  
+    }
+
+    return sum;
+}
+
+int main() {
+    int terms;
+    cout << "Enter the number of terms: ";
+    cin >> terms;
+
+    double sum = calculateSum(terms);
+    cout << "The sum of the sequence is: " << sum << endl;
+
+    return 0;
+}
