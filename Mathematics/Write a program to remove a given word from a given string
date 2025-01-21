@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int matchWord(string text, string word, int startIndex) {
+    for (int i = startIndex; i < startIndex + word.length(); i++) {
+        if (text[i] != word[i - startIndex]) {
+            return 0;
+        }
+    }
+    return word.length();
+}
+
+int main()
+{
+    string word, text;
+    cout << "Input the word: ";
+    cin >> word;
+    cout << "Input the text: ";
+    cin >> text;
+    
+    string result = "";
+    
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == word[0]) {
+            int matchLength = matchWord(text, word, i);
+            if (matchLength > 0) {
+                i += matchLength - 1; 
+                continue;
+            }
+        }
+        result += text[i];
+    }
+    cout << result;
+    return 0;
+}
