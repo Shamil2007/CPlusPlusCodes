@@ -1,0 +1,40 @@
+## Example: arr[1,2,3,4,5] --> arr[5,1,2,3,4]
+
+#include <iostream>
+using namespace std;
+
+void arrayRight(int arr[], int n) {
+    int last = arr[n - 1];  
+    for (int i = n - 1; i > 0; i--) {
+        arr[i] = arr[i - 1];  
+    }
+    arr[0] = last;  
+}
+
+void printArray(int arr[], int n) {
+    cout << "The shifted array is: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";  
+    }
+    cout << endl;
+}
+
+int main() {
+    int n;
+    cout << "Enter the length of the array: ";
+    cin >> n;
+    
+    int arr[n];
+    
+    cout << "Enter the elements of the array in order:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Element at index " << i << ": ";
+        cin >> arr[i];
+    }
+    
+    arrayRight(arr, n);  
+    
+    printArray(arr, n); 
+    
+    return 0;
+}
