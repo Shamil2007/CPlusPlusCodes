@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+bool isGeometricProgression(int arr[], int n){
+    int ratio = arr[1] / arr[0];
+    for (int i = 1; i < n - 1; i++) {
+        if (arr[i + 1] / arr[i] != ratio){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main()
+{
+    int n;
+    cout<<"Enter length of the array: "; 
+    cin>>n;
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        cout<<"Enter number: ";
+        cin>>arr[i];
+    }
+    
+    if (isGeometricProgression(arr, n)){
+        cout<<"It is Geometric progression.";
+    }
+
+    return 0;
+}
